@@ -1,22 +1,29 @@
 {
   "name": "polytags",
   "version": "1.0.0",
-  "description": "Dynamic polybar workspace labels with TypeScript and polyframes patterns",
-  "main": "dist/index.js",
+  "description": "kine's polybar workspace labels for herbstluftwm — a drop-in ewmh_labels replacement, native binary via bunli.",
   "type": "module",
   "bin": {
-    "polytags": "./dist/index.js"
+    "polytags": "src/index.ts"
   },
   "scripts": {
-    "build": "bunli compile",
-    "dev": "bun src/index.ts",
-    "test": "bun test"
+    "dev": "bunli dev",
+    "build": "bunli build",
+    "test": "bun test tests/render.test.ts"
   },
   "dependencies": {
-    "herbctl": "^1.0.0"
+    "@bunli/core": "^0.8.2"
   },
   "devDependencies": {
+    "@oven/bun-linux-x64": "^1.4.4",
     "@types/bun": "latest",
-    "bunli": "^1.0.0"
-  }
+    "bunli": "^0.8.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.2"
+  },
+  "trustedDependencies": [
+    "bun"
+  ]
 }
