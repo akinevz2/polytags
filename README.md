@@ -1,10 +1,9 @@
 # polytags
 
-kine's polybar workspace labels for herbstluftwm — a native binary via
-bunli, and a drop-in replacement for the polybar package's `ewmh_labels`
-bash script. It renders the workspace label line for
-`[module/workspaces]`-style modules (one line, `tail = true`) and handles
-the bar's click and scroll actions.
+A polybar workspace-list renderer for herbstluftwm — a native bunli
+binary that renders the tagspace label line, handles the bar's mouse
+interface (left click focuses, scroll cycles, right click opens the
+tag menu), and provides a small command surface over the hlwm tags.
 
 ## Install
 
