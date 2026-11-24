@@ -35,7 +35,9 @@ describe("emitLabel", () => {
 
     it("closes every action it opens", () => {
         const out = emitLabel("work", ":", "web", "mail");
-        expect(out.match(/%{A\d+:/g)).toHaveLength(3);
+        // A1 focus, A3 the tag menu, A4/A5 scroll
+        expect(out.match(/%{A\d+:/g)).toHaveLength(4);
+        expect(out).toContain("%{A3:polytags menu ");
         expect(out.match(/%{A}/g)).toHaveLength(3);
     });
 });

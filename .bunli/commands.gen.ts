@@ -4,17 +4,24 @@
 import type { Command, CLI, GeneratedOptionMeta, RegisteredCommands, CommandOptions, GeneratedCommandMeta } from '@bunli/core'
 import { createGeneratedHelpers, registerGeneratedStore } from '@bunli/core'
 
+import CommandsMenu from '../src/commands/menu.js'
 import CommandsRender from '../src/commands/render.js'
 
 // Narrow list of command names to avoid typeof-cycles in types
-const names = ['commands/render'] as const
+const names = ['commands/menu', 'commands/render'] as const
 type GeneratedNames = typeof names[number]
 
 const modules: Record<GeneratedNames, Command<any>> = {
+  'commands/menu': CommandsMenu,
   'commands/render': CommandsRender
 } as const
 
 const metadata: Record<GeneratedNames, GeneratedCommandMeta> = {
+  'commands/menu': {
+      name: 'commands/menu',
+      description: 'the tag menu: focus / add / close / the app launcher',
+      path: './src/commands/menu'
+    },
   'commands/render': {
       name: 'commands/render',
       description: 'Render the tag label line once and exit',

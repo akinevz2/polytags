@@ -30,8 +30,10 @@ export function parseTagStatus(line: string): TagEntry[] {
 
 /**
  * Emit one clickable label — byte-parity with ewmh_labels' emit_label:
- * A1 switches to the tag, A4/A5 scroll prev/next; populated workspaces
- * bright, empty dimmed, focused gets the gold underline.
+ * A1 switches to the tag (ALWAYS focuses), A4/A5 scroll prev/next, and
+ * A3 opens the TAG MENU for the tag (focus / add / close / the app
+ * launcher — `polytags menu`); populated workspaces bright, empty
+ * dimmed, focused gets the gold underline.
  */
 export function emitLabel(name: string, marker: string, prev: string, next: string): string {
     const color = marker === "." ? COLORS.hidden : COLORS.visible;
@@ -40,9 +42,10 @@ export function emitLabel(name: string, marker: string, prev: string, next: stri
     const uclose = focused ? "%{-u}" : "";
     return (
         `%{A1:herbstclient use ${name}:}` +
+        `%{A3:polytags menu ${name}:}` +
         `%{A4:herbstclient use ${prev}:}` +
         `%{A5:herbstclient use ${next}:}` +
-        `%{F${color}}${uopen} ${name} ${uclose}%{F-}%{A}%{A}%{A}`
+        `%{F${color}}${uopen} ${name} ${uclose}%{F-}%{A}%{A}%{A}%{A}`
     );
 }
 

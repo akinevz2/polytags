@@ -1,6 +1,6 @@
 {
   "name": "polytags",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "kine's polybar workspace labels for herbstluftwm — a drop-in ewmh_labels replacement, native binary via bunli.",
   "type": "module",
   "bin": {

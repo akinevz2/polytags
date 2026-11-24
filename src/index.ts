@@ -14,6 +14,7 @@ import pkg from "../package.json";
 
 import { runDaemon, printTags } from "./lib/daemon";
 import { default as renderCommand } from "./commands/render";
+import { default as menuCommand } from "./commands/menu";
 
 async function main(): Promise<void> {
     const argv = process.argv.slice(2);
@@ -46,6 +47,7 @@ async function main(): Promise<void> {
     });
 
     cli.command(renderCommand);
+    cli.command(menuCommand);
 
     await cli.run();
 }
